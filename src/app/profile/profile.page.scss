@@ -1,0 +1,19 @@
+.profile-info {
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+}
+
+ion-item {
+    --ion-label-floating-width: 200px;
+    /* Ajustez la largeur des étiquettes flottantes */
+}
+
+ion-button {
+    margin-top: 20px;
+}

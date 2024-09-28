@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Search for Announces</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="custom-background">
+  <div class="container">
+    <div class="text-center mt-5">
+      <h1 class="mb-3">Search for Announces</h1>
+      <div class="input-group mb-3">
+        <ion-input type="search" placeholder="Search" [(ngModel)]="searchTerm" class="form-control"></ion-input>
+        <ion-button fill="clear" class="search-button" (click)="performSearch()">
+          <ion-icon name="search"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+
+    <ng-container *ngIf="searchTerm.trim() === ''">
+      <ng-container *ngIf="vide">
+        <div class="alert alert-primary text-center mt-4">
+          <ion-label>Search term is required.</ion-label>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="searchResults.length > 0">
+      <ng-container *ngIf="!searching">
+        <h2 class="mt-4">Search Results</h2>
+        <ion-list lines="full">
+          <ion-item *ngFor="let annonce of searchResults">
+            <ion-card class="custom-card">
+              <ion-card-header class="custom-card-header">
+                {{ annonce.post.title }}
+              </ion-card-header>
+              <ion-card-content class="custom-card-content">
+                <p><strong>Contenu:</strong> {{ annonce.post.content }}</p>
+                <p><strong>Nom:</strong> {{ annonce.user.firstName }} {{ annonce.user.lastName }}</p>
+                <p><strong>Date:</strong> {{ formatDateTime(annonce.post.date) }}</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-item>
+        </ion-list>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="searching">
+      <div class="alert alert-primary text-center mt-4">
+        <ion-label>No annonces available.</ion-label>
+      </div>
+    </ng-container>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="ajouterAnnonce()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

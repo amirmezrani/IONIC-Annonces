@@ -1,0 +1,132 @@
+<!--
+  
+  <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>gestion-annonces</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">gestion-annonces</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu Content</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+
+
+      <ion-list>
+        <ion-item button (click)="goToAcceuil()">
+          Acceuil
+        </ion-item>
+        <ion-item button (click)="goToGestionAnnonces()">
+          Gestion de ses annonces
+        </ion-item>
+        <ion-item button (click)="logout()">
+          Logout
+        </ion-item>
+      </ion-list>
+
+    </ion-content>
+  </ion-menu>
+
+
+
+  <ion-list>
+
+    <ion-item *ngFor="let annonce of userAnnonces">
+      <ion-card>
+        <ion-card-header>
+          {{ annonce.post.title }}
+        </ion-card-header>
+        <ion-card-content>
+          {{ annonce.post.content }}
+        </ion-card-content>
+
+        <ion-button (click)="editerAnnonce(annonce)">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+        <ion-button (click)="supprimerAnnonce(annonce)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+
+      </ion-card>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="ajouterAnnonce()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+</ion-content>
+
+-->
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Annonces</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+
+
+
+  <ion-card *ngFor="let annonce of userAnnonces">
+
+
+    <ion-card-header *ngIf="annonce !== annonceEnEdition">
+      {{ annonce.post.title }}
+    </ion-card-header>
+    <ion-card-content *ngIf="annonce !== annonceEnEdition">
+      <p><strong>Catégorie: {{ annonce.post.category }}</strong></p>
+      <hr />
+      <p>{{ annonce.post.content }}</p>
+
+    </ion-card-content>
+
+    <ion-footer class="custom-card-footer">
+      <p class="custom-card-date">Le {{ formatDateTime(annonce.post.date) }}</p>
+    </ion-footer>
+
+    <ion-button *ngIf="annonce !== annonceEnEdition" (click)="commencerEdition(annonce)">
+      <ion-icon name="create"></ion-icon>
+    </ion-button>
+
+    <ion-button *ngIf="annonce !== annonceEnEdition" (click)="supprimerAnnonce(annonce)">
+      <ion-icon name="trash-bin"></ion-icon>
+    </ion-button>
+
+    <ion-card *ngIf="annonceEnEdition === annonce">
+      <ion-card-header>
+        <ion-input [(ngModel)]="annonce.post.title"></ion-input>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input [(ngModel)]="annonce.post.content"></ion-input>
+      </ion-card-content>
+      <ion-button (click)="enregistrerModification(annonce)">Enregistrer</ion-button>
+      <ion-button (click)="annulerEdition()">Annuler</ion-button>
+    </ion-card>
+  </ion-card>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="ajouterAnnonce()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+</ion-content>

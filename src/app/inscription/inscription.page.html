@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Inscription
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <!-- Formulaire d'inscription -->
+      <form (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-label position="floating">firstName</ion-label>
+          <ion-input type="text" name="firstName" [(ngModel)]="formData.firstName" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">lastName</ion-label>
+          <ion-input type="text" name="lastName" [(ngModel)]="formData.lastName" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">phone</ion-label>
+          <ion-input type="text" name="phone" [(ngModel)]="formData.phone" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Adresse E-mail</ion-label>
+          <ion-input type="email" name="email" [(ngModel)]="formData.email" required></ion-input>
+        </ion-item>
+        <div *ngIf="inscriptionForm.get('firstName')!.hasError('required') && inscriptionForm.get('firstName')!.touched"
+          class="text-danger">
+          First Name is required
+        </div>
+
+        <ion-item>
+          <ion-label position="floating">Mot de passe</ion-label>
+          <ion-input type="password" name="password" [(ngModel)]="formData.password" required></ion-input>
+        </ion-item>
+
+
+
+        <ion-button expand="full" type="submit">S'inscrire</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

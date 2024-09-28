@@ -1,0 +1,63 @@
+/* Styles pour la page d'accueil */
+
+/* Centrer le contenu verticalement */
+ion-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+ion-card {
+    width: 80%;
+    max-width: 400px;
+    margin: 10px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f8f8f8;
+}
+
+ion-card:hover {
+    transform: translateY(-3px);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+}
+
+ion-card-header {
+    background-color: #007bff;
+    color: #fff;
+}
+
+ion-card-content {
+    padding: 15px;
+}
+
+ion-card-header ion-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+ion-card-content ion-text {
+    font-size: 16px;
+}
+
+ion-card:hover {
+    transform: translateY(-3px);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.custom-list {
+    --ion-item-background: transparent;
+    /* Fond transparent pour les éléments de liste */
+}
+
+
+
+
+
+
+.custom-card-date {
+    font-size: 14px;
+    color: #777;
+}

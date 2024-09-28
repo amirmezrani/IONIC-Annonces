@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="annuler()">
+        <ion-icon name="close-circle"></ion-icon> Annuler
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Créer une annonce</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form (ngSubmit)="ajouterAnnonce()" class="ion-padding" [formGroup]="annonceForm">
+    <ion-item>
+      <ion-label position="floating">Titre</ion-label>
+      <ion-input type="text" name="title" formControlName="title" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Description</ion-label>
+      <ion-textarea name="description" formControlName="content" required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Catégorie</ion-label>
+      <ion-select name="category" formControlName="category" required>
+        <ion-select-option value="news">News</ion-select-option>
+        <ion-select-option value="sport">Sport</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div *ngIf="annonceForm.get('category')!.hasError('required') && annonceForm.get('category')!.touched">
+      <ion-text color="danger">Catégorie est requise</ion-text>
+    </div>
+
+    <div *ngIf="createError">
+      <ion-text color="danger">{{createError}}</ion-text>
+    </div>
+
+    <ion-button expand="full" type="submit" [disabled]="annonceForm.invalid">Ajouter</ion-button>
+  </form>
+</ion-content>

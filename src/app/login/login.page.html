@@ -1,0 +1,93 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ formulaireActuel === 'login' ? 'login' : 'Inscription' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div class="page-background">
+
+
+  <ion-content [fullscreen]="true" class="login-content">
+    <ion-avatar class="profile-avatar">
+      <img src="../../assets/images/photo-avatar-profil.png" alt="Profile Picture">
+    </ion-avatar>
+
+    <!-- Affichez le formulaire de login si formulaireActuel est 'login' -->
+    <form *ngIf="formulaireActuel === 'login'" (ngSubmit)="login()" [formGroup]="loginForm">
+      <ion-item>
+        <ion-label position="floating">Adresse e-mail</ion-label>
+        <ion-input type="email" name="email" formControlName="email" required></ion-input>
+      </ion-item>
+      <div *ngIf="loginForm.get('email')!.hasError('email') && loginForm.get('email')!.touched">
+        <ion-text color="danger">Adresse e-mail invalide</ion-text>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Mot de passe</ion-label>
+        <ion-input type="password" name="password" formControlName="password" required></ion-input>
+      </ion-item>
+
+      <div *ngIf="loginError">
+        <ion-text color="danger">{{ loginError }}</ion-text>
+      </div>
+
+      <ion-button expand="full" type="submit" [disabled]="loginForm.invalid">Se Connecter</ion-button>
+    </form>
+
+    <!-- Affichez le formulaire d'inscription si formulaireActuel est 'inscription' -->
+    <form class="login-form" *ngIf="formulaireActuel === 'inscription'" (ngSubmit)="inscription()"
+      [formGroup]="inscritForm">
+      <ion-item>
+        <ion-label position="floating">firstName</ion-label>
+        <ion-input type="text" name="firstName" formControlName="firstName" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">lastName</ion-label>
+        <ion-input type="text" name="lastName" formControlName="lastName" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">phone</ion-label>
+        <ion-input type="number" name="phone" formControlName="phone" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Adresse E-mail</ion-label>
+        <ion-input type="email" name="email" formControlName="email" required></ion-input>
+      </ion-item>
+      <div *ngIf="inscritForm.get('email')!.hasError('email') && inscritForm.get('email')!.touched">
+        <ion-text color="danger">Adresse e-mail invalide</ion-text>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Mot de passe</ion-label>
+        <ion-input type="password" name="password" formControlName="password" required></ion-input>
+      </ion-item>
+
+
+      <div *ngIf="inscritError">
+        <ion-text color="danger">{{ inscritError }}</ion-text>
+      </div>
+
+
+
+      <ion-button expand="full" type="submit" [disabled]="inscritForm.invalid">S'inscrire</ion-button>
+    </form>
+
+
+    <p *ngIf="formulaireActuel === 'login'">
+      <span class="font-weight-bold">Don't have an account?</span>
+      <a (click)="basculerFormulaire()" class="btn btn-link">Register</a>
+    </p>
+
+    <p *ngIf="formulaireActuel === 'inscription'">
+      <span class="font-weight-bold">Already have an account?</span>
+      <a (click)="basculerFormulaire()" class="btn btn-link">Log In</a>
+    </p>
+
+
+    <!-- Bouton pour basculer entre les formulaires -->
+
+  </ion-content>
+</div>

@@ -1,0 +1,78 @@
+.page-background {
+    background-image: url('../../assets/images/imgggg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+.login-content {
+    background: rgba(0, 0, 0, 0.7);
+    /* Fond légèrement transparent */
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    max-width: 400px;
+}
+
+.login-form {
+    background: transparent;
+}
+
+
+form {
+    background: rgba(255, 255, 255, 0.1);
+    /* Fond légèrement transparent pour les champs de saisie */
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+ion-item {
+    margin-bottom: 15px;
+    --ion-item-background: rgba(255, 255, 255, 0.1);
+    /* Arrière-plan légèrement transparent */
+}
+
+ion-label {
+    color: #fff;
+}
+
+ion-input,
+ion-textarea {
+    --ion-input-background: rgba(255, 255, 255, 0.1);
+    /* Arrière-plan légèrement transparent */
+    color: #000000;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+ion-button {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+}
+
+a.btn-link {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a.btn-link:hover {
+    color: #0056b3;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 25px;
+    display: block;
+}

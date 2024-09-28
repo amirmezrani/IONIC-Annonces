@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="profile-info">
+    <ion-avatar class="profile-avatar">
+      <img src="../../assets/images/photo-avatar-profil.png" alt="Profile Picture">
+    </ion-avatar>
+
+    <form (ngSubmit)="update()" [formGroup]="inscritForm">
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="floating">First Name</ion-label>
+        <ion-input type="text" name="firstName" formControlName="firstName" required></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="floating">Last Name</ion-label>
+        <ion-input type="text" name="lastName" formControlName="lastName" required></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input type="number" name="phone" formControlName="phone" required></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="floating">Email Address</ion-label>
+        <ion-input type="email" name="email" formControlName="email" required></ion-input>
+      </ion-item>
+      <div *ngIf="inscritForm.get('email')!.hasError('email') && inscritForm.get('email')!.touched">
+        <ion-text color="danger">Invalid email address</ion-text>
+      </div>
+
+      <ion-button expand="full" type="submit" [disabled]="inscritForm.invalid">Update</ion-button>
+    </form>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="ajouterAnnonce()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+</ion-content>

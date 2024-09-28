@@ -1,0 +1,46 @@
+/* Styles pour la page d'accueil */
+
+/* Centrer le contenu verticalement */
+ion-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Styles pour les cartes d'annonces */
+ion-card {
+    width: 80%;
+    max-width: 400px;
+    margin: 10px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+ion-card-header {
+    background-color: #007bff;
+    /* Couleur de l'en-tête de la carte */
+    color: #fff;
+    /* Couleur du texte de l'en-tête de la carte */
+}
+
+ion-card-content {
+    padding: 15px;
+}
+
+/* Styles pour le titre de l'annonce */
+ion-card-header ion-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Styles pour la description de l'annonce */
+ion-card-content ion-text {
+    font-size: 16px;
+}
+
+/* Hover effect sur les cartes */
+ion-card:hover {
+    transform: translateY(-3px);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}

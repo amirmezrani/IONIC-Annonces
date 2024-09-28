@@ -1,0 +1,29 @@
+<ion-menu side="start" contentId="main-content">
+
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-list>
+      <ion-item button (click)="goToAcceuil()">
+        Acceuil
+      </ion-item>
+      <ion-item button (click)="goToGestionAnnonces()">
+        Gestion de ses annonces
+      </ion-item>
+      <ion-item button (click)="logout()">
+        Logout
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>

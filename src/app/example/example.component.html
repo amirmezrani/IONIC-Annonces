@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-avatar class="profile-avatar" (click)="goToProfile()">
+      <img src="../../assets/images/photo-avatar-profil.png" alt="Profile Picture">
+    </ion-avatar>
+    <span (click)="goToProfile()" class="user-name">{{ user.firstName }} {{ user.lastName }}</span>
+
+    <ion-buttons slot="end" class="logout-button">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="accueil">
+      <ion-icon id="search-icon" name="home"></ion-icon>
+      Home
+    </ion-tab-button>
+    <ion-tab-button tab="gestion-annonces">
+      <ion-icon name="albums"></ion-icon>
+      annonces
+    </ion-tab-button>
+
+    <ion-tab-button tab="search">
+      <ion-icon name="search"></ion-icon>
+      Search
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile">
+      <ion-icon name="person-circle"></ion-icon>
+      profile
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

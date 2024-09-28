@@ -1,0 +1,35 @@
+ion-toolbar {
+    background-color: #007bff;
+}
+
+ion-button {
+    background-color: #a7a3a3;
+    color: #fff;
+    border: none;
+    margin-right: 10px;
+}
+
+/* Style au survol du bouton "Annuler" */
+ion-button:hover {
+    background-color: #ff0000;
+}
+
+ion-title {
+    font-size: 24px;
+}
+
+ion-item {
+    margin-bottom: 16px;
+}
+
+ion-label {
+    font-weight: bold;
+}
+
+ion-textarea {
+    min-height: 150px;
+}
+
+ion-button {
+    margin-top: 16px;
+}
